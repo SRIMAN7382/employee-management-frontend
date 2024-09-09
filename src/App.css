@@ -1,38 +1,254 @@
-.App {
+/* Modern Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container Styling */
+.container, .employee-list-container, .employee-form-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.container:hover, .employee-list-container:hover, .employee-form-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Headings */
+h2.text-center {
   text-align: center;
+  color: #2d3748;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Buttons */
+button, .button-link {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: rgba(74, 85, 104, 0.9);
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:hover, .button-link:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button:active, .button-link:active {
+  transform: translateY(-1px);
+}
+
+/* Specific Button Styles */
+button.btn-danger {
+  background-color: rgba(245, 101, 101, 0.9);
+}
+
+button.btn-info {
+  background-color: rgba(66, 153, 225, 0.9);
+  margin-right: 15px;
+}
+
+button.btn-primary {
+  background-color: rgba(102, 126, 234, 0.9);
+}
+
+button.btn-success {
+  background-color: rgba(72, 187, 120, 0.9);
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+table:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+table th, table td {
+  padding: 16px;
+  text-align: left;
+}
+
+table th {
+  background-color: rgba(237, 242, 247, 0.9);
+  color: #2d3748;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(247, 250, 252, 0.5);
+}
+
+table tr:hover {
+  background-color: rgba(226, 232, 240, 0.8);
+}
+
+/* Action Buttons in Table */
+table .action-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+table .action-buttons button {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  border: 2px solid rgba(226, 232, 240, 0.8);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+table .action-buttons button:hover {
+  background-color: rgba(226, 232, 240, 0.8);
+}
+
+table .action-buttons button:active {
+  transform: translateY(1px);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgba(226, 232, 240, 0.8);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: rgba(102, 126, 234, 0.8);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Form Buttons */
+.form-buttons {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.form-buttons button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: rgba(74, 85, 104, 0.9);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.form-buttons button:hover {
+  background-color: rgba(66, 153, 225, 0.9);
+}
+
+.form-buttons button.cancel {
+  background-color: rgba(245, 101, 101, 0.9);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container, button, .button-link, table, .form-group {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container, .employee-list-container, .employee-form-container {
+    padding: 24px;
+    margin: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  h2.text-center {
+    font-size: 2rem;
+  }
+
+  table th, table td {
+    padding: 12px;
+  }
+
+  button, .button-link {
+    padding: 12px 20px;
+    font-size: 0.875rem;
+  }
+
+  .form-group input {
+    padding: 10px 14px;
+    font-size: 0.875rem;
+  }
+
+  table .action-buttons {
+    flex-direction: column;
+  }
+
+  .button-container {
+    flex-direction: column;
   }
 }

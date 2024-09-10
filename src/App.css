@@ -95,7 +95,7 @@ table {
   background-color: rgba(255, 255, 255, 1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  overflow: hidden;
+  overflow-x: auto;
   transition: all 0.3s ease;
 }
 
@@ -107,6 +107,7 @@ table:hover {
 table th, table td {
   padding: 16px;
   text-align: left;
+  white-space: nowrap;
 }
 
 table th {
@@ -214,7 +215,6 @@ table .action-buttons button:active {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 .container, button, .button-link, table, .form-group {
   animation: fadeIn 0.5s ease-out;
 }
@@ -231,7 +231,7 @@ table .action-buttons button:active {
   }
 
   table th, table td {
-    padding: 12px;
+    padding: 12px 8px;
   }
 
   button, .button-link {
@@ -246,9 +246,67 @@ table .action-buttons button:active {
 
   table .action-buttons {
     flex-direction: column;
+    gap: 4px;
   }
 
-  .button-container {
+  .form-buttons {
     flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    /* Maintain responsive behavior on smaller screens */
+  }
+
+  table td {
+    padding: 8px 4px;
+  }
+
+  .container, .employee-list-container, .employee-form-container {
+    padding: 20px;
+    margin: 15px;
+  }
+
+  h2.text-center {
+    font-size: 1.75rem;
+  }
+
+  button, .button-link {
+    padding: 10px 16px;
+    font-size: 0.75rem;
+  }
+
+  .form-group input, .form-group select {
+    padding: 8px 12px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Additional Responsive Adjustments (optional) */
+@media (max-width: 375px) {
+  /* Consider further adjustments for very small screens */
+  table th, table td {
+    padding: 6px 2px;
+  }
+
+  .container, .employee-list-container, .employee-form-container {
+    padding: 16px;
+    margin: 10px;
+  }
+
+  h2.text-center {
+    font-size: 1.5rem;
+  }
+
+  button, .button-link {
+    padding: 8px 12px;
+    font-size: 0.7rem;
+  }
+
+  .form-group input, .form-group select {
+    padding: 6px 10px;
+    font-size: 0.8rem;
   }
 }
